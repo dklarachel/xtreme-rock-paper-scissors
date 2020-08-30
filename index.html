@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>rock paper scissors</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i|Source+Sans+Pro:400,400i,600,600i&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
+
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+
+<!-- game over popup -->
+<div class="gameoverlay">
+<div class="gameover">
+<h1><span>winner</span></h1>
+<i></i>
+<div class="close">play again</div>
+</div>
+</div>
+<!-- game over pop up end -->
+
+<div id="cont">
+
+<!-- computer -->
+<div id="computer">
+
+<!-- rock -->
+<div class="rock weapon">
+  <img src="https://bit.ly/37uOjsY"/> 
+</div>
+<span class="rock weaponcount">5</span>
+<!--paper -->
+<div class="paper weapon">
+  <img src="https://i.pinimg.com/originals/d2/7a/0f/d27a0f3516a8b2623e7934d20eef3bdc.png"/>
+</div>
+<span class="paper weaponcount">5</span>
+<!-- scissor -->
+<div class="scissor weapon">
+  <img src="https://bit.ly/2rjcCtf"/>
+</div>
+<span class="scissor weaponcount">5</span>
+
+</div>
+
+
+
+
+<!-- buttons -->
+<div id="buttons">
+
+<!-- title -->
+<h1>Xtreme Rock Paper Scissors</h1>
+
+<div class="reset"><i class="fas fa-redo"></i> reset</div>
+<div class="directions"><i class="fas fa-question-circle"></i> how to play</div>
+<div class="changenum"><i class="fas fa-stream"></i># of weapons: <span onKeypress="if(event.keyCode < 48 || event.keyCode > 57){return false;}" contenteditable="true"><span contenteditable="false">5</span></span></div>
+</div>
+
+
+<!-- display -->
+<div id="display">
+  <p>
+  </p>
+</div>
+
+
+<!-- log -->
+<div id="log">
+<table>
+  <tr>
+    <th>user</th>
+    <th>computer</th>
+    <th>winner</th>
+  </tr>
+</table>
+</div>
+
+
+
+<!-- user -->
+<div id="user">
+
+<!-- rock -->
+<div class="rock weapon">
+  <img src="https://bit.ly/37uOjsY"/> 
+</div>
+<span class="rock weaponcount">5</span>
+<div class="overlay rock">
+  <p>
+    <button title="play" class="play rock"><i class="fas fa-play"></i></button>
+    <button title="build" class="build rock"><i class="fas fa-hammer"></i></button>
+  </p>
+</div>
+<!--paper -->
+<div class="paper weapon">
+  <img src="https://i.pinimg.com/originals/d2/7a/0f/d27a0f3516a8b2623e7934d20eef3bdc.png"/>
+</div>
+<span class="paper weaponcount">5</span>
+<div class="overlay paper">
+  <p>
+    <button title="play" class="play paper"><i class="fas fa-play"></i></button>
+    <button title="build" class="build paper"><i class="fas fa-hammer"></i></button>
+  </p>
+</div>
+<!-- scissor -->
+<div class="scissor weapon">
+  <img src="https://bit.ly/2rjcCtf"/>
+</div>
+<span class="scissor weaponcount">5</span>
+<div class="overlay scissor">
+  <p>
+    <button title="play" class="play scissor"><i class="fas fa-play"></i></button>
+    <button title="build" class="build scissor"><i class="fas fa-hammer"></i></button>
+  </p>
+</div>
+
+</div>
+
+
+</div>
+<!-- container end -->
+
+    <script src="script.js"></script>
+  </body>
+</html>

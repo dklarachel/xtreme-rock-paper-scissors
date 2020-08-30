@@ -1,0 +1,353 @@
+/* general styling */
+body {
+  font-family:'Source Sans Pro', sans-serif;
+  color:#444;
+  font-size:18px;
+}
+
+::-webkit-scrollbar {width:11px;height:11px;background:#fff;}
+::-webkit-scrollbar-thumb {background:#999;width:2px;}
+::-webkit-scrollbar,::-webkit-scrollbar-thumb {border:1px solid #fff;}
+
+:root {
+  --accent1:191, 213, 255;
+  --accent2:215, 213, 255;
+  --accent3:210, 255, 213;
+}
+
+#log th, #buttons, .weaponcount, .close {
+  font-family:'Karla', sans-serif;
+}
+
+button {
+  margin:5px;
+  padding:7px;
+  border-radius:3px;
+  border:none;
+  font-family:'Source Sans Pro', sans-serif;
+}
+
+button:focus {
+  outline:0;
+}
+
+button:hover {
+  cursor:pointer;
+}
+
+/* animations */
+@keyframes fadeOut {
+  from {
+    opacity:1;
+  }
+  to {
+    opacity:0.55;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity:0.55;
+  } to {
+    opacity:1;
+  }
+}
+
+/* container */
+#computer { grid-area:computer; }
+
+#display { grid-area:display; }
+#log { grid-area:log; }
+#buttons { grid-area:buttons; }
+#user { grid-area:user; }
+
+#cont {
+  display:grid;
+  grid-gap:10px;
+  grid-template-columns:22.5vw auto 22.5vw;
+  grid-template-rows:25vh auto auto; 
+  grid-template-areas: 
+    "computer buttons user"
+    "computer display user"
+    "computer log user";
+  height:100vh;
+}
+
+#cont div {
+  padding:10px;
+}
+
+#center div {
+  display:block;
+}
+
+/* weapons */
+.rock, .rol1 { grid-area:rock; }
+.paper, .rol2 { grid-area:paper; }
+.scissor, .rol3 { grid-area:scissor;}
+
+#computer, #user {
+  display:grid;
+  grid-gap:5px;
+  grid-template-rows:33.33333vh;
+  grid-template-areas: 
+    "rock"
+    "paper"
+    "scissor";
+  text-align:center;
+  height:100vh;
+}
+
+.weapon {
+  border:none;
+}
+
+.rock {
+  background:rgb(var(--accent1), 0.6);
+}
+
+.paper {
+  background:rgb(var(--accent2), 0.6);
+}
+
+.scissor {
+  background:rgb(var(--accent3), 0.6);
+}
+
+#computer img, #user img {
+  width:80%;
+  margin:auto 10% auto 10%;
+  opacity:1;
+}
+
+.scissor img {
+  filter:grayscale(100%);
+}
+
+#computer span, #user span {
+  font-size:28px;
+  width:35px;
+  height:35px;
+  padding:10px;
+  background:rgb(256, 256, 256, 0.75);
+  margin:auto;
+}
+
+#user .overlay {
+  text-align:center;
+  opacity:0;
+  background:rgb(0, 0, 0, 0.75);
+  transition:ease-in 0.4s;
+  z-index:99999;
+  position:relative;
+}
+
+#user .overlay p {
+  position:absolute;
+  transform:translate(-50%, -50%);
+  top:50%;
+  left:50%;
+  height:38%;
+}
+
+#user .overlay:hover {
+  opacity:1;
+  transition:ease-in 0.4s;
+}
+
+#user .overlay button {
+  border-radius:50%;
+  width:55px;
+  height:55px;
+  background:rgb(255, 255, 255, 1);
+  transition:0.5s ease-in-out;
+}
+
+#user .overlay i {
+  font-size:20px;
+}
+
+#user .overlay button:hover {
+  transform:rotate(360deg);
+  transition:0.5s ease-in-out;
+}
+
+.weaponcount {
+  color:rgb(4, 4, 4, 1);
+  transition:0.5s ease-in-out;
+  opacity:1;
+  z-index:99999;
+}
+
+
+/* display */
+#display {
+  height:auto;
+  background:#eee;
+  border-radius:8px;
+  text-align:center;
+}
+
+#display p {
+  display:block;
+  vertical-align:middle;
+}
+
+#display ul {
+  text-align:left;
+}
+
+/* name form */
+form button {
+  border:1px solid rgb(var(--accent2));
+}
+
+
+/* log */
+#log {
+  /*
+  height:calc((100vh - 8vh - 40px) / 2);
+  max-height:ccalc((100vh - 8vh - 40px) / 2);
+  */
+  border:1px solid #eee;
+  height:50vh;
+  max-height:50vh;
+  overflow:scroll;
+}
+
+#log table {
+  /* border-collapse:separate;
+  border-spacing:15px 0;
+  */
+  border-collapse:collapse;
+  width:100%;
+  text-align:center;
+}
+
+#log th, td {
+  padding:8px;
+}
+
+#log th {
+  background:rgb(var(--accent1));
+}
+
+#log tr:nth-child(4n+3) {
+  background:rgb(var(--accent2), 0.45);
+}
+
+#log tr:nth-child(4n+5) {
+  background:rgb(var(--accent3), 0.45);
+}
+
+/* buttons */
+#buttons {
+  text-align:center;
+  width:90%;
+  margin:0 auto;
+}
+
+#buttons div {
+  border-radius:7px;
+  float:left;
+  width:26%;
+  margin-right:3%;
+}
+
+#buttons div i {
+  margin-right:8px;
+}
+
+#buttons div:not(.changenum):hover {
+  cursor:pointer;
+}
+
+.reset, .directions, .changenum {
+  background:#eee;
+  transition:ease-in-out 0.5s;
+}
+
+.reset {
+  border:2px solid rgb(var(--accent1));
+}
+
+.directions {
+  border:2px solid rgb(var(--accent2));
+}
+
+.changenum {
+  border:2px solid rgb(var(--accent3));
+}
+
+.reset:hover {
+  background:rgb(var(--accent1));
+  transition:ease-in-out 0.5s;
+}
+
+.directions:hover {
+  background:rgb(var(--accent2));
+  transition:ease-in-out 0.5s;
+}
+
+.changenum:hover {
+  background:rgb(var(--accent3));
+  transition:ease-in-out 0.5s;
+}
+
+.changenum span {
+  display:inline-block;
+}
+
+/* game over popup */
+.gameoverlay {
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgb(0, 0, 0, 0.65);
+  visibility:hidden; 
+  opacity:1;
+  z-index:999999;
+  animation:none;
+}
+
+.gameover {
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:30%;
+  height:auto;
+  background:#fff;
+  border:1px solid #eee;
+  visibility:hidden; 
+  opacity:1;
+  z-index:9999999;
+  animation:none;
+  text-align:center;
+  padding:15px 15px 45px 15px;
+  transform:translate(-50%, -50%) scale(0.65);
+  transition:ease-in-out 0.5s;
+}
+
+.close {
+  border-radius:7px;
+  border:2px solid rgb(var(--accent2));
+  background:#eee;
+  display:inline-block;
+  padding:11px;
+  transition:ease-in-out 0.5s;
+}
+
+.close:hover {
+  cursor:pointer;
+  background:rgb(var(--accent2));
+  transition:ease-in-out 0.5s;
+}
+
+
+
+
+
+
